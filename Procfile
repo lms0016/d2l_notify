@@ -1,0 +1,1 @@
+worker: python d2l.py
