@@ -40,9 +40,9 @@ async def on_message(message):
 
     if message.webhook_id == discord_bot_id: return # Ignore the bot's own messages
 
-    ignore_discord_uid_list = ignore_discord_uid.split(':')
-    # for i in ignore_discord_uid: # Ignore specific user messages
-    if str(message.webhook_id) in ignore_discord_uid_list: return
+    if ignore_discord_uid is not None:
+        ignore_discord_uid_list = ignore_discord_uid.split(':')     
+        if str(message.webhook_id) in ignore_discord_uid_list: return # Ignore specific user messages
 
     if set_message_channel is False:
         lotify_message = message.author.display_name + "\n"
