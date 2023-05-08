@@ -25,12 +25,11 @@ async def on_ready():
     print(f"Logged in as {bot.user.name}({bot.user.id})")
 
 @bot.command()
-async def ping(ctx):
-    lotify.send_message(
-        access_token=lotify_token,
-        message='pong'
-    )
-    await ctx.send('pong')
+async def clean(ctx,num:int):
+    if ctx.message.author.id==378069026552676355:
+        await ctx.channel.purge(limit=num+1)
+    else:
+        await ctx.send('只有Rita可以執行這指令')       
 
 # Check if message channel is set 
 set_message_channel = message_channel_id is not None        
