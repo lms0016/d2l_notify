@@ -25,6 +25,10 @@ async def on_ready():
     print(f"Logged in as {bot.user.name}({bot.user.id})")
 
 @bot.command()
+async def ping(ctx):
+    await ctx.send(f'{round(bot.latency*1000)}(ms)')
+    
+@bot.command()
 async def clean(ctx,num:int):
     if ctx.message.author.id==378069026552676355:
         await ctx.channel.purge(limit=num+1)
