@@ -29,9 +29,9 @@ async def ping(ctx):
     await ctx.send(f'{round(bot.latency*1000)}(ms)')
     
 @bot.command()
-async def clean(ctx,num:int):
+async def clean(ctx):
     if ctx.message.author.id==378069026552676355:
-        await ctx.channel.purge(limit=num+1)
+        await ctx.channel.purge(limit=None)
     else:
         await ctx.send('只有Rita可以執行這指令')       
 
